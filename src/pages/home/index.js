@@ -18,7 +18,7 @@ function Home(props) {
   useEffect(() => {
     axios.ajax({
       url: window.location.pathname.includes('view/build/index.html') ?
-        `${window.location.origin}${window.location.pathname.replace('/view/build', '')}/api/testData.json` :
+        `${window.location.origin}${window.location.pathname.replace('/build/index.html', '')}/test/data/testData.json` :
         `${window.location.origin}/api/testData.json`
     }).then((data) => {
       setData1(data.resultInfo.data.data.slice(0, 3))

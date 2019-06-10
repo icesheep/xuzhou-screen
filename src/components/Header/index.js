@@ -53,7 +53,7 @@ function Header(props)  {
           if(e.target.value === '1') {
             dispatch({ type: "changeDate", payload: {timeType: e.target.value, baseTime: moment().format('YYYY-MM-DD')} })
           }else if(e.target.value === '3') {
-            dispatch({ type: "changeDate", payload: {timeType: e.target.value, baseTime: moment().format('YYYY-MM')+'-01'} })
+            dispatch({ type: "changeDate", payload: {timeType: e.target.value+'-01', baseTime: moment().format('YYYY-MM')+'-01'} })
           }else if(e.target.value === '6') {
             dispatch({ type: "changeDate", payload: {timeType: e.target.value, baseTime: moment().year()} })
           }
