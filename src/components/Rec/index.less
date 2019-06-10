@@ -1,0 +1,305 @@
+@color1: rgba(29, 64, 80, 0.8);
+@color2: rgba(14,169,230,0.5);
+@color3: rgba(0,207,232,0.3);
+@color4: #00DBFF;
+@color5: rgba(255,255,255,1);
+.rec-component {
+  position: fixed;
+  background-color: @color1;
+  // border: rgba(14,169,230,0.7) solid 1px;
+  border: @color2 solid 1px;
+  color: @color5;
+  padding: 0.19rem;
+  box-shadow:0rem 0.02rem 0.54rem 0rem rgba(1,5,13,0.19);
+  z-index: 99999;
+  width: 14rem;
+  height: 7rem;
+  left: calc(50% - 7rem);
+  top: calc(50% - 3.5rem);
+  .small-corner{
+    width: 0.16rem;
+    height: 0.16rem;
+    position: absolute;
+  }
+  .q1{
+    left: -0.06rem;
+    top: -0.06rem;
+    border-top: 0.03rem solid @color4;
+    border-left: 0.03rem solid @color4;
+    border-radius: 0.03rem 0 0 0;
+  }
+  .q2{
+    right: -0.06rem;
+    top: -0.06rem;
+    border-top: 0.03rem solid @color4;
+    border-right: 0.03rem solid @color4;
+    border-radius: 0 0.03rem 0 0;
+  }
+  .q3{
+    left: -0.06rem;
+    bottom: -0.06rem;
+    border-bottom: 0.03rem solid @color4;
+    border-left: 0.03rem solid @color4;
+    border-radius: 0 0 0 0.03rem;
+  }
+  .q4{
+    right: -0.06rem;
+    bottom: -0.06rem;
+    border-bottom: 0.03rem solid @color4;
+    border-right: 0.03rem solid @color4;
+    border-radius: 0 0 0.03rem 0;
+  }
+  
+  .rec-title {
+    position: relative;
+    color: @color5;
+    font-size:0.24rem;
+    font-family:HYk2gj;
+    color:@color5;
+    margin-bottom: 0.1rem;
+    line-height: 1;
+    &::before {
+      content: '';
+      display: inline-block;
+      width:0;
+      height:0;
+      border-top: 0.06rem solid transparent;
+      border-bottom: 0.06rem solid transparent;
+      border-left: 0.08rem solid @color5;
+      padding-left: 0.11rem;
+      vertical-align: middle;
+    }
+    span {
+      vertical-align: middle;
+    }
+    .mark {
+      font-family: 'Microsoft YaHei';
+      color: @color5;
+      font-size: 0.18rem;
+    }
+  }
+
+  .close {
+    top: 0;
+    right: 0;
+    position: absolute;
+    line-height: 0.2rem;
+    text-align: center;
+    height: 0.2rem;
+    width: 0.2rem;
+    font-size: 0.2rem;
+    padding: 0.01rem;
+    cursor: pointer;
+  }
+
+  .close::before {
+    content: "\2716";
+  }
+
+  .top {
+    height: 57%;
+    .rec-info {
+      display: flex;
+      height: calc(100% - 0.5rem);
+      .part1 {
+        flex: 3;
+        border: @color2 solid 0.01rem;
+        padding: 0.1rem;
+        display: inline-block;
+        overflow-y: auto;
+        position: relative;
+        .rec-row {
+          width: 50%;
+          display: inline-block;
+          padding-bottom: 0.1rem;
+        }
+        .rec-label {
+          // display: inline-block;
+          // width: 40%;
+          // padding-right: 0.05rem;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          color: @color4;
+        }
+        .rec-text {
+          // display: inline-block;
+          // padding-right: 0.05rem;
+          // width: 60%;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+      .part2 {
+        flex: 2;
+        border: @color2 solid 0.01rem;
+        margin-left: 0.1rem;
+        padding: 0.1rem;
+        .part2Div {
+          position: relative;
+        }
+        .leftCursor {
+          background-color: red;
+          position: absolute;
+          cursor: pointer;
+          left: 0rem;
+          top: 0%;
+          width: 30%;
+          height: 100%;
+          filter: alpha(opacity=0);
+          opacity: 0;
+          cursor: url(icon/leftCursor.cur), auto;
+        }
+        .rightCursor {
+          background-color: red;
+          position: absolute;
+          cursor: pointer;
+          right: 0rem;
+          top: 0%;
+          width: 30%;
+          height: 100%;
+          filter: alpha(opacity=0);
+          opacity: 0;
+          cursor: url(icon/rightCursor.cur), auto;
+        }
+        .media-pic {
+          width: 100%;
+          height: 2.5rem;
+        }
+        .text {
+          text-align: center;
+          margin-top: 0.1rem;
+        }
+        .icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 0.05rem;
+          .download {
+            margin: 0 0.05rem;
+            cursor: pointer;
+            width: 0.18rem;
+            height: 0.2rem;
+            background: url(icon/download.png) no-repeat;
+          }
+          .open {
+            margin: 0 0.05rem;
+            cursor: pointer;
+            width: 0.18rem;
+            height: 0.18rem;
+            background: url(icon/recbox-icon.png) -1.71rem 0rem no-repeat;
+          }
+        }
+        .bigPic {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: black;
+          z-index: 1;
+          .closeBigPic {
+            top: 0.15rem;
+            right: 0.15rem;
+            position: absolute;
+            line-height: 0.3rem;
+            text-align: center;
+            height: 0.3rem;
+            width: 0.3rem;
+            font-size: 0.3rem;
+            padding: 0.01rem;
+            cursor: pointer;
+            border: 0.01rem solid white;
+            border-radius: 0.3rem;
+          }
+          .closeBigPic::before {
+            content: "\2716";
+          }
+        }
+      }
+      .part3 {
+        flex: 2;
+        border: @color2 solid 0.01rem;
+        margin-left: 0.1rem;
+        padding: 0.1rem;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .bottom {
+    height: 43%;
+    .rec-download {
+      float: right;
+      text-align: center;
+      cursor: pointer;
+      width: 0.7rem;
+      font-size: 0.14rem;
+      font-family: MicrosoftYaHei;
+      border: 0.01rem solid @color4;
+      color: @color4;
+      margin-left: 0.1rem;
+      padding: 0.05rem 0;
+    }
+    table {
+      max-height: 2.5rem;
+      margin-top: 0.1rem;
+      width: 100%;
+      tr {
+        height: 0.4rem;
+        line-height: 0.4rem;
+      }
+      th, td {
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      tbody {
+        display: inline-block;
+        width: 100%;
+        overflow: auto;
+        height: 2.1rem;
+      }
+      .rec-head {
+        display: flex;
+        width: 100%;
+        background: rgba(48,233,253,0.12);
+      }
+      .rec-row {
+        display: flex;
+        width: 100%;
+        &:nth-child(2n+2) {
+          background:rgba(48,233,253,0.12);
+        }
+      }
+    }
+  }
+    
+}
+&::-webkit-scrollbar {
+  width: 8px;
+}
+/* 滚动槽 */
+&::-webkit-scrollbar-track {
+  background:rgba(29,48,75,0.77);
+}
+/* 滚动条滑块 */
+&::-webkit-scrollbar-thumb {
+  border-left:1px solid rgba(29,48,75,0.77);
+  border-right:1px solid rgba(29,48,75,0.77);
+  background-size: 8px;
+  background:rgba(0,159,230,0.5);
+  border-radius:4px;
+  box-shadow:0px 1px 3px rgba(0,0,0,0.3) inset;
+}
+&::-webkit-scrollbar-thumb:window-inactive {
+// background:rgba(255,0,0,0.4);
+}

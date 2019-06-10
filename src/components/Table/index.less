@@ -1,0 +1,88 @@
+.eg-table {
+  .table {
+    // max-height: 250px;
+    table-layout: fixed;
+    width: 100%;
+    .tr {
+      min-height: 0.4rem;
+      // line-height: 0.4rem;
+    }
+    .th, .td {
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size:0.16rem;
+      width:0;
+      padding: 0 0.05rem;
+      border-left: 1px solid rgba(74,144,226,1);
+      &:last-child {
+        border-right: 1px solid rgba(74,144,226,1);
+      }
+    }
+    .th{
+      font-weight:600;
+      height: 0.8rem;
+      line-height: 0.8rem;
+    }
+    .td {
+      line-height: 0.4rem;
+    }
+    .th-child {
+      border-left: 1px solid rgba(74,144,226,1);
+      font-weight:600;
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size:0.16rem;
+      height: 0.8rem;
+      line-height: 0.4rem;
+    }
+    .th-child1 {
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size:0.16rem;
+      border-bottom: 1px solid rgba(74,144,226,1);
+      display: flex;
+      justify-content: center;
+      &:last-child {
+        border-bottom: none;
+      }
+    } 
+    .th-child2 {
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size:0.16rem;
+      border-right: 1px solid rgba(74,144,226,1);
+      &:last-child {
+        border-right: none;
+      }
+    }
+    .tbody {
+      display: inline-block;
+      width: 100%;
+      overflow: auto;
+      height: auto;
+    }
+    .rec-head {
+      display: flex;
+      width: 100%;
+      // background: #2785FF;
+      background: #295DAE;
+      align-items: center;
+    }
+    .rec-row {
+      display: flex;
+      width: 100%;
+      border-bottom:1px solid rgba(74,144,226,1);
+      &:nth-child(2n+2) {
+        // background:rgba(39,133,255,0.26);
+      }
+    }
+  }
+}

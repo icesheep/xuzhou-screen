@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <script src="%PUBLIC_URL%/jquery-2.1.1.min.js"></script>
+    <link rel="shortcut icon" href="/eGovaMISV14/favicon.ico">
+    <link rel="stylesheet" href="%PUBLIC_URL%/reset.css">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="stylesheet" href="%PUBLIC_URL%/icon-style.css">
+   
+    <title></title>
+  </head>
+  <script>        
+    (function (doc, win) {    
+      var docEl = doc.documentElement,    
+      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',    
+      recalc = function () {    
+        var clientWidth = docEl.clientWidth;    
+        if (!clientWidth) return;    
+        docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';    
+      };    
+      if (!doc.addEventListener) return;    
+      win.addEventListener(resizeEvt, recalc, false);    
+      doc.addEventListener('DOMContentLoaded', recalc, false);    
+      // $(document).bind('mouseover mouseout mousemove',function(event){           
+      //   var left = event.pageX , top = event.pageY;
+      //   var ele = event.target;
+      //   var title = ele.title;
+
+      //   var type = event.originalEvent.type;
+      //   if(type == 'mouseover'){
+      //       oldTitle = title;
+      //       ele.title = '';
+      //       //if(title && title.length > 0){  
+      //       if(title != null && title != ''){              
+      //           var showEle = $('<div></div>',{html:title,class:'showTitleBox'}).css({
+      //               position:'absolute',
+      //               top:top+10,
+      //               left:left,
+      //               border:'1px solid #CCC',
+      //               borderRadius:'5px',
+      //               background:"infobackground",
+      //               fontSize: '18px',
+      //               fontWeight: 'bold',
+      //               fontFamily:'pingfang,MicrosoftYaHei',
+      //               zIndex: 9999,
+      //               minHeight: 0
+      //           })
+      //           showEle.appendTo('body');               
+      //       }
+      //   }else if(type == 'mouseout'){
+      //       ele.title = oldTitle;
+      //       $('.showTitleBox').remove();
+      //   }else if(type == 'mousemove'){
+      //       $('.showTitleBox').css({
+      //           top:top+10,
+      //           left:left,
+      //       })
+      //   }
+      // })
+    })(document, window);    
+  </script>
+  <body class="body-bg">
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

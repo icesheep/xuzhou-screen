@@ -1,0 +1,61 @@
+<html>
+<head></head>
+<style>
+	.map{
+		width:100%;
+		height:100%;
+	}
+
+</style>
+<body>
+<div id="map"></div>
+<script src="./build/source/egovamap.js"></script>
+<script>
+	
+	var mapConfig = {params:{navi:"{visible:true,left:20,top:90}",
+        toolbar:"{items:'zoomin,zoomout,pan,fullextent,measurelength,measurearea,refresh,layertree,identify,snap,locatexy',visible:true,left:20,top:60}",
+        geocode:"{visible:true,right:20,top:60}",trace:"{right:5,bottom:185}",switchbar:"{right:20,top:102}",layertree:"{top:160}"},
+        mapconfig3D:{ toolbar:"{ visible:true,left:20,top:60}"},
+        maskPos : {top:95}
+    };
+	var context = {
+		rootPath:"http://localhost:8081/eUrbanGIS/",
+		humanID:"",
+		gisServerURL:"http://localhost:8081/eUrbanGIS/",
+		originPath:"",
+		mapCenterFlag:"",
+		coordinateX:"",
+		coordinateY:"",
+		humanLayerUsageID:"",
+		regionCode:"",
+		humanLayerKeyFieldName:"",
+		mapZoomRange:"",
+		mmsEnabled:"",
+		mmsParams:"",
+		globeParams:"",
+		globeEnabled:true,
+		globeServerURL:"http://localhost:8081/eUrbanGIS/",
+		globeCallBack:"",
+		gisEnabled:true,
+		currentMapType:"",
+		mmsServerURL:"",
+		assetsPath:""
+	}
+	
+	var context = {
+		/*rootPath:"http://localhost:8081/eUrbanGIS/",*/
+		gisServerURL:"http://localhost:8081/eUrbanGIS/",
+		gisEnabled:true,
+		mapType:"emap",
+		assetsPath:""
+	}
+	
+	
+	var emap = egovamap.getInstance(document.getElementById("map"),function(e){
+		setTimeout(function(){
+			emap.centerAndZoom(null,null,-1);
+		},5000);
+	}, mapConfig,null,null,context);
+</script>
+</body>
+</html>

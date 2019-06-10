@@ -1,0 +1,149 @@
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 100;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  background-color: #15263B;
+}
+
+* {
+  box-sizing: inherit;
+}
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+img,
+embed,
+object,
+audio,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+  text-align: left;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: pingfang,"MicrosoftYaHei","Helvetica Neue", Helvetica,sans-serif, Arial;
+}
+
+#root{
+  height: 100%;
+  min-height: 9.38rem;
+}
+
+.outer-bg {
+  background: transparent;
+  height: 100%;
+  background-image: url('./images/background.png');
+  background-size: 100% 100%;
+  color: #fff;
+  font-size: 0.16rem;
+}
+
+.outer-bg .content-box {
+  position: relative;
+  height: 100%;
+  flex: 1;
+  
+}
+
+.ant-table .ant-table-placeholder {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+}
+
+.overfl {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break:break-all;
+}
+
+.eg-research{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* .jx-btn {
+  width:78px;
+  height:30px;
+  background: rgba(0,116,167,1);
+  border-radius:3px;
+  border: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.9;
+  }
+} */
+
+.macpc div.rect .ant-table-fixed-header > .ant-table-content > .ant-table-scroll > .ant-table-body {
+  margin-top: 0;
+}

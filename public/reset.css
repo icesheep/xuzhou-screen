@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'numbold';
+  font-style: normal;
+  src: url('./font/DINCondensed.ttf') format('ttf'),
+  url('./font/DINCondensed.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'pingfang';
+  src: url('./font/pingfang.ttf') format('ttf'),
+  url('./font/pingfang.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'numthin';
+  src: url('./font/DS-DIGIT.ttf') format('ttf'),
+  url('./font/DS-DIGIT.ttf') format('truetype');
+}

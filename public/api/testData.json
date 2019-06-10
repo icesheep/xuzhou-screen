@@ -1,0 +1,55 @@
+{
+	"resultInfo": {
+		"success": false,
+		"code": null,
+		"message": null,
+		"data": {
+			"data": [
+				{
+					"name": "徐州市",
+					"num1": 955,
+					"num2": 10204,
+					"num3": 273
+				},
+				{
+					"name": "沛县",
+					"num1": 62,
+					"num2": 4513,
+					"num3": 62
+				},
+				{
+					"name": "睢宁县",
+					"num1": 22,
+					"num2": 1020,
+					"num3": 22
+				},
+				{
+					"name": "新沂市",
+					"num1": 19,
+					"num2": 257,
+					"num3": 16
+				},
+				{
+					"name": "邳州市",
+					"num1": 40,
+					"num2": 3428,
+					"num3": 40
+				},
+				{
+					"name": "丰县",
+					"num1": 42,
+					"num2": 1431,
+					"num3": 45
+				}
+			],
+			"data2": {
+				"totalArea": 11258,
+				"coverArea": 955,
+				"quNum": 6,
+				"xianNum": 3,
+				"shiNum": 2
+			}
+		},
+		"tipType": 1
+	}
+}

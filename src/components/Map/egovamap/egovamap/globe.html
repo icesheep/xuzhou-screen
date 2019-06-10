@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html style="height:100%;width:100%;" xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eGovaGlobe三维</title>
+</head>
+<body>
+    <div id="cesiumContainer" class="fullWindow"></div>
+    <div id="loadingIndicator" class="loadingIndicator"></div>
+	 <script type = "text/javascript">
+		function getUrlParam(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+			var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+			if (r != null) return unescape(r[2]); return null; //返回参数值
+		}
+		var mainScript = document.createElement("script");
+		mainScript.setAttribute("type", "text/javascript");
+		mainScript.setAttribute("src", getUrlParam("serverURL") + "/library/globe/api/initGlobe.js");
+		document.getElementsByTagName("head").item(0).appendChild(mainScript);
+	</script>
+</body>
+
+</html>

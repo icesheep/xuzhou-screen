@@ -1,0 +1,55 @@
+.eg-modal {
+  .eg-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    height: 100%;
+    z-index: 1000;
+  }
+  .eg-document {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .eg-page {
+    position: relative;
+  }
+  .close-btn {
+    width: 0.18rem;
+    height: 0.18rem;
+    position: absolute;
+    right: 0.16rem;
+    top: 0;
+    font-size: 0.32rem;
+    cursor: pointer;
+  }
+  .modal-title {
+    height:0.48rem;
+    // background:rgba(11,145,255,1);
+    background:#264490;
+    border-radius:3px 3px 0px 0px;
+    font-size:0.24rem;
+    font-weight:500;
+    color:rgba(255,255,255,1);
+    line-height:0.48rem;
+    padding-left: 0.15rem;
+  }
+  .modal-content {
+    background:rgba(8,34,106,0.8);
+    box-shadow:0px 0px 6px 0px rgba(0,70,170,0.7);
+    border-radius:3px;
+    padding: 0.15rem;
+  }
+}

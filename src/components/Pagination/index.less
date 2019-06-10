@@ -1,0 +1,45 @@
+.eg-pagination {
+  text-align: center;
+  .pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 0.2rem 0;
+    border-radius: 4px;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+    color: #A8CAFF;
+    font-size:0.14rem;
+    li {
+      float: left;
+      margin-left: 0.1rem;
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+      background-color: transparent;
+      border: 1px solid rgba(61,113,172,1);
+      min-width: 0.24rem;
+      height: 0.24rem;
+      line-height: 0.24rem;
+      text-align: center;
+      input {
+        height: 0.2rem;
+        line-height: 0.22rem;
+        background: transparent;
+        border: 1px solid #3d71ac;
+        width: 0.5rem;
+        padding: 0;
+      }
+    } 
+    li.active {
+      background-color: #0091F0;
+    }
+    li:hover {
+      border-color: rgb(24, 144, 255);
+      transition: all 0.3s ease 0s;
+    }
+    .auto {
+      border: none;
+      width: auto;
+    }
+  }
+}
