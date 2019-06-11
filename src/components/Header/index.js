@@ -11,7 +11,7 @@ function Header(props)  {
   const [param, setParam] = useState('1');
   const {topDate, dispatch} = useContext(myContext);
   function onChange(e, eString) {
-    dispatch({ type: "changeDate", payload: {timeType: param, baseTime: eString} })
+    dispatch({ type: "changeDate", payload: {timeType: param, baseTime: eString.padEnd(10,'-01')} })
   }
   function disabledDate(current) {
     // Can not select days before today and today
@@ -28,7 +28,7 @@ function Header(props)  {
       const start = 2018;
       let end = moment().year();
       const arr = [];
-      while(end > start) {
+      while(end >= start) {
         arr.push(end);
         end--;
       }
@@ -53,7 +53,7 @@ function Header(props)  {
           if(e.target.value === '1') {
             dispatch({ type: "changeDate", payload: {timeType: e.target.value, baseTime: moment().format('YYYY-MM-DD')} })
           }else if(e.target.value === '3') {
-            dispatch({ type: "changeDate", payload: {timeType: e.target.value+'-01', baseTime: moment().format('YYYY-MM')+'-01'} })
+            dispatch({ type: "changeDate", payload: {timeType: e.target.value, baseTime: moment().format('YYYY-MM')+'-01'} })
           }else if(e.target.value === '6') {
             dispatch({ type: "changeDate", payload: {timeType: e.target.value, baseTime: moment().year()} })
           }

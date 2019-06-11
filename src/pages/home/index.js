@@ -8,6 +8,7 @@ import ReactEcharts from 'echarts-for-react';
 import axios from '@/axios/ajax';
 import './index.less';
 // import {testData} from '/testData';
+const regionArr = ['云龙区','泉山区','新城区','云龙湖风景管理委员会','徐州经济技术开发区','鼓楼区','贾汪区','铜山区'];
 function Home(props) {
   const { topDate } = useContext(myContext);
   const [_emap, setEmap] = useState(null);
@@ -34,9 +35,76 @@ function Home(props) {
         baseTime: (topDate && topDate.baseTime) || moment().format('YYYY-MM-DD'),
         regionType: 1,
         regionId: 0,
+        humanID: 100433
       }
     }).then((data) => {
-      setRecData(data.resultInfo.data.chartData)
+      var t = data.resultInfo.data.chartData;
+      var xuzhouTotal = {
+        DISPATCHNUM: 0,
+        ARCHIVENUM: 0,
+        ARCHIVERATE: '0%',
+        CHANGE: 0,
+        COMPSCORE: 0,
+        DISPOSENUM: 0,
+        DISPOSERATE: '0%',
+        EVALLEVEL: 0,
+        INSTNUM: 0,
+        INSTRATE: '0%',
+        INTIMEARCHIVENUM: 0,
+        INTIMEARCHIVERATE: '0%',
+        INTIMEDISPOSENUM: 0,
+        INTIMEDISPOSERATE: '0%',
+        NAME: "徐州市",
+        NEEDARCHIVENUM: 0,
+        NEEDDISPOSENUM: 0,
+        OVERTIMEDISPOSENUM: 0,
+        PUBLICREPORTNUM: 0,
+        RANK: 0,
+        REGIONCODE: 0,
+        REGIONID: 0,
+        REGIONTYPE: 0,
+        REPORTNUM: 0,
+      };
+      for (let i = 0; i < t.length; i++) {
+        if (regionArr.includes(t[i].NAME)) {
+          xuzhouTotal.DISPATCHNUM += t[i].DISPATCHNUM;
+          xuzhouTotal.ARCHIVENUM += t[i].ARCHIVENUM;
+          xuzhouTotal.DISPOSENUM += t[i].DISPOSENUM;
+          xuzhouTotal.INSTNUM += t[i].INSTNUM;
+          xuzhouTotal.INTIMEARCHIVENUM += t[i].INTIMEARCHIVENUM;
+          xuzhouTotal.INTIMEDISPOSENUM += t[i].INTIMEDISPOSENUM;
+          xuzhouTotal.NEEDARCHIVENUM += t[i].NEEDARCHIVENUM;
+          xuzhouTotal.NEEDDISPOSENUM += t[i].NEEDDISPOSENUM;
+          xuzhouTotal.OVERTIMEDISPOSENUM += t[i].OVERTIMEDISPOSENUM;
+          xuzhouTotal.REPORTNUM += t[i].REPORTNUM;
+        }
+      }
+      // 立案率=立案数/上报数
+      if(xuzhouTotal.REPORTNUM === 0) {
+        xuzhouTotal.INSTRATE = '0%'
+      }else {
+        xuzhouTotal.INSTRATE = Number(xuzhouTotal.INSTNUM/xuzhouTotal.REPORTNUM*100).toFixed(2)
+      }
+      // 处置率=处置数/应处置数
+      if(xuzhouTotal.NEEDDISPOSENUM === 0) {
+        xuzhouTotal.DISPOSERATE = '0%'
+      }else {
+        xuzhouTotal.DISPOSERATE = Number(xuzhouTotal.DISPOSENUM/xuzhouTotal.NEEDDISPOSENUM*100).toFixed(2)
+      }
+      // 结案率=结案数/应结案数
+      if(xuzhouTotal.NEEDARCHIVENUM === 0) {
+        xuzhouTotal.ARCHIVERATE = '0%'
+      }else {
+        xuzhouTotal.ARCHIVERATE = Number(xuzhouTotal.ARCHIVENUM/xuzhouTotal.NEEDARCHIVENUM*100).toFixed(2)
+      }
+      // 按时结案率=按时结案数/应结案数
+      if(xuzhouTotal.NEEDARCHIVENUM === 0) {
+        xuzhouTotal.INTIMEARCHIVERATE = '0%'
+      }else {
+        xuzhouTotal.INTIMEARCHIVERATE = Number(xuzhouTotal.INTIMEARCHIVENUM/xuzhouTotal.NEEDARCHIVENUM*100).toFixed(2)
+      }
+      t.push(xuzhouTotal);
+      setRecData(t)
       renderMap(data.resultInfo.data.chartData)
     })
   }, [topDate])
@@ -45,7 +113,16 @@ function Home(props) {
     var geoCoord = {}, values = [];
     for (var i = 0; i < data.length; i++) {
       var t1 = {};
-      geoCoord[data[i].NAME] = [data[i].X, data[i].Y];
+      if(data[i].X && data[i].Y) {
+        geoCoord[data[i].NAME] = [data[i].X, data[i].Y];
+      }else {
+        var arr = data1.concat(data2);
+        for(var j =0 ;j < arr.length; j++) {
+          if(data[i].NAME === arr[j].name) {
+            geoCoord[data[i].NAME] = [arr[j].x, arr[j].y];
+          }
+        }
+      }
       t1.name = data[i].NAME;
       t1.value = data[i].REPORTNUM;
       values.push(t1);
@@ -324,7 +401,7 @@ function Home(props) {
                       style={{ height: '100%', width: '100%' }}
                     />
                   </div>
-                  <div className="chart">
+                  <div className="chart2">
                     <ReactEcharts
                       option={getOption2(item.name)}
                       notMerge
@@ -373,7 +450,7 @@ function Home(props) {
                       style={{ height: '100%', width: '100%' }}
                     />
                   </div>
-                  <div className="chart">
+                  <div className="chart2">
                     <ReactEcharts
                       option={getOption2(item.name)}
                       notMerge
