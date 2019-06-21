@@ -30,68 +30,70 @@ class Map extends Component {
   
   componentDidMount() {
     EGovaMap.releaseInstance(this.emapId);
-    // axios.ajax({
-    //   url: 'home/desktop/getgisserverconfig'
-    // }).then((res) => {
-    //   let data = res.resultInfo.data;
-    //   var context = {
-    //     rootPath:rootPath.includes('localhost') ? window.location.origin : rootPath,
-    //     humanID:"",
-    //     gisServerURL: data.gisServerURL || "http://221.229.211.32:8081/eUrbanGIS/",
-    //     originPath:"",
-    //     mapCenterFlag:"",
-    //     coordinateX:"",
-    //     coordinateY:"",
-    //     humanLayerUsageID:"",
-    //     regionCode:"",
-    //     humanLayerKeyFieldName:"",
-    //     mapZoomRange:"",
-    //     mmsEnabled:"",
-    //     mmsParams:"",
-    //     globeParams:"",
-    //     globeEnabled:false,
-    //     globeServerURL:"",
-    //     globeCallBack:"",
-    //     gisEnabled:true,
-    //     currentMapType:"",
-    //     mmsServerURL:"",
-    //     assetsPath:rootPath.includes('localhost') ? "/" : "",
-    //     mapType:"emap",
-    //   }
-    //   this.emap = EGovaMap.getInstance(this.emapId, ()=>{this.props.callback&&this.props.callback()}, this.mapConfig,null,null,context);
-    //   if(this.props && this.props.getMapInstance){
-    //       this.props.getMapInstance(this.emap);
-    //   }
-    // })
-    var data = {}
-    var context = {
-      rootPath:rootPath.includes('localhost') ? window.location.origin : rootPath,
-      humanID:"",
-      gisServerURL: data.gisServerURL || "http://221.229.211.32:8081/eUrbanGIS/",
-      originPath:"",
-      mapCenterFlag:"",
-      coordinateX:"",
-      coordinateY:"",
-      humanLayerUsageID:"",
-      regionCode:"",
-      humanLayerKeyFieldName:"",
-      mapZoomRange:"",
-      mmsEnabled:"",
-      mmsParams:"",
-      globeParams:"",
-      globeEnabled:false,
-      globeServerURL:"",
-      globeCallBack:"",
-      gisEnabled:true,
-      currentMapType:"",
-      mmsServerURL:"",
-      assetsPath:rootPath.includes('localhost') ? "/" : "",
-      mapType:"emap",
-    }
-    this.emap = EGovaMap.getInstance(this.emapId, ()=>{this.props.callback&&this.props.callback()}, this.mapConfig,null,null,context);
-    if(this.props && this.props.getMapInstance){
-        this.props.getMapInstance(this.emap);
-    }
+    axios.ajax({
+      url:  window.location.pathname.includes('view/build/index.html') ?
+      `${window.location.origin}${window.location.pathname.replace('/build/index.html', '')}/test/data/getgisserverconfig.json` :
+      `${window.location.origin}/api/getgisserverconfig.json`
+    }).then((res) => {
+      let data = res.resultInfo.data;
+      var context = {
+        rootPath:rootPath.includes('localhost') ? window.location.origin : rootPath,
+        humanID:"",
+        gisServerURL: data.gisServerURL || "http://221.229.211.32:8081/eUrbanGIS/",
+        originPath:"",
+        mapCenterFlag:"",
+        coordinateX:"",
+        coordinateY:"",
+        humanLayerUsageID:"",
+        regionCode:"",
+        humanLayerKeyFieldName:"",
+        mapZoomRange:"",
+        mmsEnabled:"",
+        mmsParams:"",
+        globeParams:"",
+        globeEnabled:false,
+        globeServerURL:"",
+        globeCallBack:"",
+        gisEnabled:true,
+        currentMapType:"",
+        mmsServerURL:"",
+        assetsPath:rootPath.includes('localhost') ? "/" : "",
+        mapType:"emap",
+      }
+      this.emap = EGovaMap.getInstance(this.emapId, ()=>{this.props.callback&&this.props.callback()}, this.mapConfig,null,null,context);
+      if(this.props && this.props.getMapInstance){
+          this.props.getMapInstance(this.emap);
+      }
+    })
+    // var data = {}
+    // var context = {
+    //   rootPath:rootPath.includes('localhost') ? window.location.origin : rootPath,
+    //   humanID:"",
+    //   gisServerURL: data.gisServerURL || "http://221.229.211.32:8081/eUrbanGIS/",
+    //   originPath:"",
+    //   mapCenterFlag:"",
+    //   coordinateX:"",
+    //   coordinateY:"",
+    //   humanLayerUsageID:"",
+    //   regionCode:"",
+    //   humanLayerKeyFieldName:"",
+    //   mapZoomRange:"",
+    //   mmsEnabled:"",
+    //   mmsParams:"",
+    //   globeParams:"",
+    //   globeEnabled:false,
+    //   globeServerURL:"",
+    //   globeCallBack:"",
+    //   gisEnabled:true,
+    //   currentMapType:"",
+    //   mmsServerURL:"",
+    //   assetsPath:rootPath.includes('localhost') ? "/" : "",
+    //   mapType:"emap",
+    // }
+    // this.emap = EGovaMap.getInstance(this.emapId, ()=>{this.props.callback&&this.props.callback()}, this.mapConfig,null,null,context);
+    // if(this.props && this.props.getMapInstance){
+    //     this.props.getMapInstance(this.emap);
+    // }
   }
 
   render() {
