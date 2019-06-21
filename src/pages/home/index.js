@@ -83,25 +83,25 @@ function Home(props) {
       if(xuzhouTotal.REPORTNUM === 0) {
         xuzhouTotal.INSTRATE = '0%'
       }else {
-        xuzhouTotal.INSTRATE = Number(xuzhouTotal.INSTNUM/xuzhouTotal.REPORTNUM*100).toFixed(2)
+        xuzhouTotal.INSTRATE = Number(xuzhouTotal.INSTNUM/xuzhouTotal.REPORTNUM*100).toFixed(2)+'%'
       }
       // 处置率=处置数/应处置数
       if(xuzhouTotal.NEEDDISPOSENUM === 0) {
         xuzhouTotal.DISPOSERATE = '0%'
       }else {
-        xuzhouTotal.DISPOSERATE = Number(xuzhouTotal.DISPOSENUM/xuzhouTotal.NEEDDISPOSENUM*100).toFixed(2)
+        xuzhouTotal.DISPOSERATE = Number(xuzhouTotal.DISPOSENUM/xuzhouTotal.NEEDDISPOSENUM*100).toFixed(2)+'%'
       }
       // 结案率=结案数/应结案数
       if(xuzhouTotal.NEEDARCHIVENUM === 0) {
         xuzhouTotal.ARCHIVERATE = '0%'
       }else {
-        xuzhouTotal.ARCHIVERATE = Number(xuzhouTotal.ARCHIVENUM/xuzhouTotal.NEEDARCHIVENUM*100).toFixed(2)
+        xuzhouTotal.ARCHIVERATE = Number(xuzhouTotal.ARCHIVENUM/xuzhouTotal.NEEDARCHIVENUM*100).toFixed(2)+'%'
       }
       // 按时结案率=按时结案数/应结案数
       if(xuzhouTotal.NEEDARCHIVENUM === 0) {
         xuzhouTotal.INTIMEARCHIVERATE = '0%'
       }else {
-        xuzhouTotal.INTIMEARCHIVERATE = Number(xuzhouTotal.INTIMEARCHIVENUM/xuzhouTotal.NEEDARCHIVENUM*100).toFixed(2)
+        xuzhouTotal.INTIMEARCHIVERATE = Number(xuzhouTotal.INTIMEARCHIVENUM/xuzhouTotal.NEEDARCHIVENUM*100).toFixed(2)+'%'
       }
       t.push(xuzhouTotal);
       setRecData(t)
@@ -248,7 +248,7 @@ function Home(props) {
           name: '访问来源',
           type: 'pie',
           center: ['30%', '50%'],
-          radius: ['50%', '100%'],
+          radius: ['40%', '80%'],
           avoidLabelOverlap: false,
           label: {
             normal: {
