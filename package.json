@@ -13,7 +13,7 @@
     "egovamap": "^0.0.16",
     "eslint-plugin-react-hooks": "^1.6.0",
     "jsonp": "^0.2.1",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.21",
     "moment": "^2.22.2",
     "qs": "^6.5.2",
     "react": "^16.8.4",
